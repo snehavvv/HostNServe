@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Storage</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    function saveLocal() {
+      const name = document.getElementById("name").value;
+      localStorage.setItem("userName", name);
+      alert("Saved to Local Storage");
+    }
+
+    function saveSession() {
+      const email = document.getElementById("email").value;
+      sessionStorage.setItem("userEmail", email);
+      alert("Saved to Session Storage");
+    }
+
+    function showData() {
+      document.getElementById("output").innerHTML =
+        "Name: " + localStorage.getItem("userName") +
+        "<br>Email: " + sessionStorage.getItem("userEmail");
+    }
+
+    function submitFeedback(event) {
+      event.preventDefault();
+      const name = document.getElementById("feedbackName").value.trim();
+      const comment = document.getElementById("feedbackComment").value.trim();
+
+      if (!name || !comment) return;
+
+      const feedback = { name, comment, time: new Date().toLocaleString() };
+      let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+      feedbackList.push(feedback);
+      localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+
+      document.getElementById("feedbackName").value = "";
+      document.getElementById("feedbackComment").value = "";
+
+      displayFeedback();
+    }
+
+    function displayFeedback() {
+      const feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+      const container = document.getElementById("feedbackDisplay");
+
+      if (feedbackList.length === 0) {
+        container.innerHTML = "<p>No feedback yet.</p>";
+        return;
+      }
+
+      container.innerHTML = feedbackList.map(fb => `
+        <div class="border-b pb-3 mb-3">
+          <p><strong>${fb.name}</strong> <span class="text-sm text-gray-500">(${fb.time})</span></p>
+          <p>${fb.comment}</p>
+        </div>
+      `).join("");
+    }
+
+    window.addEventListener("load", displayFeedback);
+  </script>
+</head>
+<body class="bg-orange-50 text-gray-800 font-sans">
+
+  <header class="bg-gray-900 text-white p-6">
+    <h1 class="text-2xl font-bold flex items-center space-x-2">
+      <span>🍽️</span>
+      <span>User Login</span>
+    </h1>
+    <nav class="flex justify-center mt-4 space-x-6">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="services.html" class="hover:underline">Services</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="storage.html" class="underline">Web Storage</a>
+      <a href="tailwind.html" class="hover:underline">Tailwind</a>
+    </nav>
+  </header>
+
+  <main class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <form class="space-y-5">
+      <div>
+        <label for="name" class="block font-semibold">Name:</label>
+        <input type="text" id="name" class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400" />
+      </div>
+
+      <div>
+        <label for="email" class="block font-semibold">Email:</label>
+        <input type="email" id="email" class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400" />
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" onclick="saveLocal()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md">Save Name (Local)</button>
+        <button type="button" onclick="saveSession()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Save Email (Session)</button>
+        <button type="button" onclick="showData()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">Show Stored Data</button>
+      </div>
+    </form>
+
+    <div id="output" class="mt-6 p-4 bg-gray-100 border rounded-md text-gray-700"></div>
+
+    <hr class="my-8">
+
+    <!-- Feedback Form -->
+    <h2 class="text-xl font-bold mb-4">Feedback Form</h2>
+    <form onsubmit="submitFeedback(event)" class="space-y-4">
+      <div>
+        <label for="feedbackName" class="block font-semibold">Name:</label>
+        <input type="text" id="feedbackName" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+      </div>
+      <div>
+        <label for="feedbackComment" class="block font-semibold">Comment:</label>
+        <textarea id="feedbackComment" required rows="3" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+      </div>
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md">Submit Feedback</button>
+    </form>
+
+    <!-- Feedback Output -->
+    <div id="feedbackDisplay" class="mt-6 p-4 bg-gray-100 border rounded-md text-gray-700"></div>
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center p-4">
+    <p>Sneha Varghese | 25-06-2025 &copy; All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

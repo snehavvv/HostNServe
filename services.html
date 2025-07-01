@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-orange-50 text-gray-800">
+
+  <!-- Header with Navigation -->
+  <header class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Site Logo/Name -->
+        <h1 class="text-2xl font-bold flex items-center space-x-2">
+  <span>HostNServe🍽️</span>
+ 
+</h1>
+
+
+        <!-- Mobile Hamburger Button -->
+        <button id="menu-btn" class="sm:hidden text-white focus:outline-none">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav id="nav-menu" class="hidden sm:flex space-x-4">
+          <a href="index.html" class="hover:underline">Home</a>
+          <a href="services.html" class="hover:underline">Services</a>
+          <a href="about.html" class="hover:underline">About</a>
+          <a href="storage.html" class="hover:underline">Web Storage</a>
+          <a href="tailwind.html" class="hover:underline">Tailwind</a>
+        </nav>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="sm:hidden hidden flex-col space-y-2 pb-4">
+        <a href="index.html" class="block hover:underline">Home</a>
+        <a href="services.html" class="block hover:underline">Services</a>
+        <a href="about.html" class="block hover:underline">About</a>
+        <a href="storage.html" class="block hover:underline">Web Storage</a>
+        <a href="tailwind.html" class="block hover:underline">Tailwind</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto p-6 flex-grow">
+    <!-- Second Section: Why Choose Us -->
+<section class="mt-12 flex flex-col sm:flex-row justify-between items-center gap-8 bg-white p-6 rounded-lg shadow-md">
+  <div class="sm:w-1/2">
+    <h2 class="text-xl font-semibold mb-2">Why Choose HostNServe?</h2>
+    <p class="text-gray-700">
+      We deliver exceptional quality with a blend of tradition and modern culinary trends.
+      Our expert chefs, fresh ingredients, and personalized menus make every event memorable.
+    </p>
+  </div>
+  <div class="sm:w-1/2">
+    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
+         alt="Catering Excellence" class="rounded-lg shadow-md w-full">
+  </div>
+</section>
+
+    <section class="flex flex-wrap justify-center gap-6">
+      <article class="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+        <h2 class="text-lg font-semibold">Wedding Catering</h2>
+        <p>Elegant menus & service for your special day.</p>
+      </article>
+      <article class="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+        <h2 class="text-lg font-semibold">Corporate Events</h2>
+        <p>Professional catering tailored to business needs.</p>
+      </article>
+      <article class="bg-white shadow-md rounded-lg p-6 w-64 text-center">
+        <h2 class="text-lg font-semibold">Private Parties</h2>
+        <p>Custom cuisine for birthdays & celebrations.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4">
+    <p>Sneha Varghese | 25-06-2025 &copy; All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Mobile Menu -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
