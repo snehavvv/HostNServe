@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery | HostNServe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    ::cue {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans min-h-screen overflow-x-hidden">
+
+  <!-- Fullscreen Background Video -->
+  <div class="relative w-full h-screen overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute w-full h-full object-cover z-0">
+      <source src="promo.mp4.mp4.mp4" type="video/mp4" />
+      <track src="captions.vtt" kind="subtitles" srclang="en" label="English Subtitles" default />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay Content -->
+    <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center z-10 px-4">
+      <h1 class="text-4xl sm:text-6xl font-bold mb-4 text-yellow-400">HostNServe</h1>
+      <p class="text-lg sm:text-xl max-w-2xl text-gray-200 mb-6">
+        Curating elegant experiences for every celebration.
+      </p>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <section class="bg-black text-white py-12 px-6 text-center">
+    <h2 class="text-2xl font-semibold mb-4">
+      <i class="fas fa-music text-green-400" aria-hidden="true"></i> 
+      <span class="sr-only">Background Music</span> Background Music
+    </h2>
+    <audio controls class="mx-auto">
+      <source src="background.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- Icon Section -->
+  <section class="bg-black text-white py-12 text-center">
+    <h2 class="text-2xl font-semibold mb-6">Our Style in Icons</h2>
+    <div class="flex justify-center gap-12 text-5xl text-yellow-400">
+      <div class="transform transition-transform duration-300 hover:scale-125" title="Fine Dining">
+        <i class="fas fa-wine-glass-alt" aria-hidden="true"></i>
+        <span class="sr-only">Fine Dining</span>
+      </div>
+      <div class="transform transition-transform duration-300 hover:scale-125" title="Celebrations">
+        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+        <span class="sr-only">Celebrations</span>
+      </div>
+      <div class="transform transition-transform duration-300 hover:scale-125" title="Professional Service">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <span class="sr-only">Professional Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with SVG -->
+  <footer class="bg-black text-gray-400 text-center py-6 text-sm flex flex-col items-center space-y-2">
+    <div class="w-6 h-6 mb-1">
+      <!-- SVG Location Pin Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-yellow-400">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm0 9c-4.418 0-8-5.373-8-9a8 8 0 1116 0c0 3.627-3.582 9-8 9z" />
+      </svg>
+    </div>
+    <p>Sneha Varghese | 25-06-2025 &copy; All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

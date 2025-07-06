@@ -5,7 +5,7 @@
   <title>About Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Leaflet CSS -->
+
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -13,26 +13,24 @@
   />
   <style>
     #fullscreen-map {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      z-index: 50;
+      
+      height: 500px;
+      width: 100%;
+      
       display: none;
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-orange-50 text-gray-800">
 
-  <!-- Header -->
+  
   <header class="bg-gray-900 text-white p-4 z-10 relative">
     <div class="flex justify-between items-center max-w-6xl mx-auto">
       <h1 class="text-2xl font-bold flex items-center space-x-2">
         <span>🍽️</span>
         <span>About Our Team – HostNServe</span>
       </h1>
-      <nav class="space-x-4 hidden sm:block">
+      <nav class="space-x-4">
         <a href="index.html" class="hover:underline">Home</a>
         <a href="services.html" class="hover:underline">Services</a>
         <a href="about.html" class="hover:underline">About</a>
@@ -42,29 +40,29 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  
   <main class="flex-grow max-w-4xl mx-auto p-6 z-10 relative">
     <section class="bg-white p-6 rounded-lg shadow text-center">
       <p class="mb-4">We are passionate foodies delivering delicious memories at every event.</p>
       <button onclick="showLocation()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Show My Location on Fullscreen Map
+        Show My Location on screen Map
       </button>
       <p id="location" class="mt-4 text-lg text-gray-700 font-medium"></p>
     </section>
+    <div id="fullscreen-map"></div>
   </main>
 
-  <!-- Fullscreen Map -->
-  <div id="fullscreen-map"></div>
 
-  <!-- Footer -->
+
+  
   <footer class="bg-gray-900 text-white text-center p-4 z-10 relative">
     <p>Sneha Varghese | 25-06-2025 &copy; All rights reserved.</p>
   </footer>
 
-  <!-- Leaflet JS -->
+  
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
-  <!-- JS -->
+  
   <script>
     function showLocation() {
       if (navigator.geolocation) {
@@ -73,9 +71,9 @@
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
             document.getElementById("location").innerText =
-              `Latitude: ${lat.toFixed(4)}, Longitude: ${lon.toFixed(4)}`;
+              `Latitude: ${lat}, Longitude: ${lon}`;
 
-            // Show full screen map
+            
             const mapDiv = document.getElementById("fullscreen-map");
             mapDiv.style.display = "block";
 
